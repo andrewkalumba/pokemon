@@ -1,0 +1,122 @@
+  @mixin flexrow ($itemContent) {
+      display: flex;
+      align-items: center;
+      // justify-content: space-between;
+      justify-content: $itemContent;
+  }
+
+  @mixin flexCol {
+      display: flex;
+      flex-direction: column;
+  }
+
+  @mixin page-layout ($Yaxis, $Xaxis, $max-width) {
+      max-width: $max-width;
+      margin: $Yaxis $Xaxis;
+  }
+
+  @mixin menuItem ($accentColor: $color-gray) {
+      //default color if one item doesnt have acolor
+      border-bottom: $indent__s solid $accentColor;
+      color: $color-gray;
+      padding: $indent__s;
+
+      font: {
+          family: $font-orbitron;
+          size: 1.2rem;
+          weight: bold;
+      }
+
+      text: {
+          align: center;
+          transform: capitalize;
+          decoration: none;
+      }
+
+      @include responsive-tablet {
+          padding: $indent__1;
+      }
+
+      &:hover,
+      &.active {
+          background-color: $accentColor ;
+      }
+  }
+
+  @mixin mainContentData {
+      text-align: center;
+      font-size: 2rem;
+      padding: $indent__xxxl;
+  }
+
+  @mixin layout {
+      display: grid;
+      grid-template-columns: repeat(3, 200px);
+      grid-template-rows: repeat(3, 1fr);
+  }
+
+  @mixin sizes ($paddingProp, $marginProp) {
+      padding: $paddingProp;
+      margin: $marginProp;
+
+      font {
+          color: $color__2;
+          size: 1.2rem;
+      }
+  }
+
+  @mixin content ($color: red) {
+      text-align: center;
+  }
+
+  @mixin home-grid-article($color) {
+      @include flexCol;
+
+      @if ($color ==$color__4) {
+          color: $color-black;
+
+          // flex-direction: column-reverse;
+          h1 {
+              order: 2;
+          }
+
+          img {
+              order: 1;
+          }
+      }
+
+      @else if ($color ==$color-minsk) {
+          color: $color-torch-red;
+          h1 {
+            order: 2;
+          }
+      }
+
+      @else {
+          color: $color-malibu;
+      }
+
+      background-color: $color;
+      text-align: center;
+  }
+
+  @mixin button-style($color: red) {
+    background-color: lighten($color,38%);
+    border: 2px solid $color;
+    border-radius: 16px;
+    padding: $indent__base;
+    margin: 40px;
+    width: 20%;
+  }
+
+  @mixin responsive-tablet {
+      @media screen and (min-width:$breakpoint-tablet) {
+          @content;
+      }
+  }
+
+  @mixin responsive-mobile {
+      @media screen and (min-width:$breakpoint-mobile) {
+          @content;
+      }
+  }

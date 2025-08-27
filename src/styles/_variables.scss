@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import './mixins';
+//sizes
+$indent__base:16px;
+$indent__s: $indent__base / 2;
+$indent__m: $indent__base * 1.5;
+$indent__1: $indent__base * 2;
+$indent__xl: $indent__base / 3;
+$indent__xx1: $indent__base / 4;
+$indent__xxxl: $indent__base / 5;
+
+//colors
+$color-white: #EEF0F2;
+$color-black: #000807;
+$color-bright-sun: #fbd743;
+$color-torch-red: #ff1f1f;
+$color-malibu: #5db9ff;
+$color-minsk: #363b81;
+$color-gray: #66717E;
+$bg-color: #000807;
+$color__1: #EEF0F2;
+$color__2: #13293D;
+$color__3: #66717E;
+$color__4: #83C9F4;
+
+//utility colors
+$color-primary:$color-white;
+$bg-color:$color-black;
+
+//font
+$font-orbitron: "Orbitron", "sans serif";
+
+//breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-mobile:400px;
+
+
+//Type colors 
+$colours: (
+	normal: #A8A77A,
+	fire: #EE8130,
+	water: #6390F0,
+	electric: #F7D02C,
+	grass: #7AC74C,
+	ice: #96D9D6,
+	fighting: #C22E28,
+	poison: #A33EA1,
+	ground: #E2BF65,
+	flying: #A98FF3,
+	psychic: #F95587,
+	bug: #A6B91A,
+	rock: #B6A136,
+	ghost: #735797,
+	dragon: #6F35FC,
+	dark: #705746,
+	steel: #B7B7CE,
+	fairy: #D685AD,
+);
+
+@each $colour, $value in $colours {
+    .pokemon__content--#{$colour} {
+        @include button-style($value)
+
+    }
+}
+

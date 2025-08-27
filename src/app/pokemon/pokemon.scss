@@ -1,0 +1,15 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.pokemon {
+    &__container {
+        @include page-layout(0, 0, 100%);
+        text-align: center;
+        min-height: 100vh;
+
+        &--button {
+            @include button-style();
+        }
+    }
+
+}

@@ -1,0 +1,16 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.pokemon__types {
+    @include flexrow(space-between);
+    flex-wrap: wrap;
+    //gap: $indent__base;
+    padding: $indent__base;
+    height: auto;
+
+    a {
+        display: inline-block;
+        flex: 0 0 100px;
+        text-decoration: none;
+    }
+}

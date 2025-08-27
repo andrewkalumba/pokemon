@@ -1,0 +1,146 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  @include flexrow(center);
+  gap: $indent__s;
+  background-color: $color-minsk;
+
+  @include responsive-tablet {
+    @include flexrow(space-between);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__icon,
+  &__avatar {
+    display: none;
+
+    @include responsive-tablet {
+      display: block;
+      width: 70px;
+    }
+  }
+
+  &__logo {
+    width: 10px;
+    flex-grow: .2;
+  }
+}
+
+.container {
+  background-color: $color-gray;
+  @include flexrow(center);
+  min-height: 100vh;
+}
+
+.mainContent {
+  @include mainContentData;
+  flex-grow: 1;
+}
+
+.menu {
+  @include flexrow (space-between);
+  @include page-layout(0, auto, 100%);
+  // @include page-layout($indent__xl,auto);
+  background-color: $bg-color;
+
+  &__item {
+
+    &--home {
+      @include menuItem($color-white);
+    }
+
+    &--pokemon {
+      @include menuItem($color-torch-red);
+    }
+
+    &--types {
+      @include menuItem($color-malibu);
+    }
+
+    &--about {
+      @include menuItem($color-minsk);
+    }
+  }
+}
+
+.footer {
+  background-color: $color-gray;
+  color: $color-white;
+  padding: $indent__1;
+  @include flexrow(center);
+}
+
+.home-grid {
+  background-color: $color-black;
+  gap: $indent__xxxl;
+  height: 100%;
+  border: $indent__s dotted $color-minsk;
+  justify-content: center;
+
+  &__article {
+    // @include home-grid-article;
+    margin-bottom: $indent__xxxl;
+    border: 1px solid $color-gray;
+
+    &.good {
+      @include home-grid-article($color__2);
+      grid-area: main;
+    }
+
+    &.best {
+      @include home-grid-article($color-black);
+    }
+
+    &.delicious {
+      @include home-grid-article($color-primary);
+    }
+
+    &.nice {
+      @include home-grid-article($color-bright-sun);
+    }
+
+    &.better {
+      @include home-grid-article($color__4);
+    }
+
+    &.excellent {
+      @include home-grid-article($color-minsk)
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  @include responsive-mobile {
+    @include layout;
+    grid-template-areas:
+      ". . ."
+      "main main ."
+      "main main .";
+    margin-bottom: 0;
+  }
+
+}
+
+// div {
+//   background-color: $color-gray;
+// }
+
+h1 {
+  text-align: center;
+}
